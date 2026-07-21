@@ -160,7 +160,7 @@
 .hero-swiper .swiper-pagination-bullet-active {
     width: 30px;
     border-radius: 6px;
-    background: #f7ab56;
+    background: #e89d42;
 }
 .hero-swiper .swiper-button-next,
 .hero-swiper .swiper-button-prev {
@@ -175,7 +175,7 @@
 }
 .hero-swiper .swiper-button-next:hover,
 .hero-swiper .swiper-button-prev:hover {
-    background: rgba(247, 171, 86, 0.9);
+    background: rgba(232, 157, 66, 0.9);
 }
 .hero-swiper .swiper-button-next::after,
 .hero-swiper .swiper-button-prev::after {
@@ -194,7 +194,7 @@
 }
 .programs-bullet-active {
     width: 28px;
-    background: #1a6881;
+    background: #13b8c3;
 }
 
 /* ============================================================
@@ -224,7 +224,7 @@
 }
 .impact-bullet-active {
     width: 28px;
-    background: #f7ab56;
+    background: #e89d42;
 }
 .impact-slide {
     transition: opacity 0.5s ease, filter 0.5s ease;
@@ -234,7 +234,7 @@
     filter: brightness(0.72) saturate(0.85);
 }
 .impact-swiper .swiper-slide-active .impact-card {
-    box-shadow: 0 25px 60px -15px rgba(13, 54, 68, 0.45);
+    box-shadow: 0 25px 60px -15px rgba(8, 90, 96, 0.45);
 }
 /* شارة الأكسنت والخط السفلي تظهر فقط على الشريحة النشطة */
 .impact-swiper .swiper-slide:not(.swiper-slide-active) .impact-card .shadow-accent-glow {
@@ -250,14 +250,14 @@
     border-radius: 1.5rem;
     background-image: linear-gradient(
         to left,
-        rgba(13, 54, 68, 0.35),
-        rgba(13, 54, 68, 0)
+        rgba(8, 90, 96, 0.35),
+        rgba(8, 90, 96, 0)
     );
 }
 .impact-swiper .swiper-slide-shadow-right {
     background-image: linear-gradient(
         to right,
-        rgba(13, 54, 68, 0.35),
-        rgba(13, 54, 68, 0)
+        rgba(8, 90, 96, 0.35),
+        rgba(8, 90, 96, 0)
     );
 }

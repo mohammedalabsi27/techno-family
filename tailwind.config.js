@@ -12,22 +12,22 @@ export default {
     theme: {
         extend: {
             colors: {
-                // ألوان هوية الشعار
+                // ألوان هوية Techno Family — أساسي تركوازي + مكمّل ذهبي
                 primary: {
-                    DEFAULT: '#1a6881',
-                    dark: '#124a5c',
-                    darker: '#0d3644',
-                    light: '#22839f',
-                },
-                secondary: {
                     DEFAULT: '#13b8c3',
                     dark: '#0e929b',
+                    darker: '#085a60',
                     light: '#4fd0d9',
                 },
+                secondary: {
+                    DEFAULT: '#e89d42',
+                    dark: '#c97d22',
+                    light: '#f0b56e',
+                },
                 accent: {
-                    DEFAULT: '#f7ab56',
-                    dark: '#f39433',
-                    light: '#fbc687',
+                    DEFAULT: '#e89d42',
+                    dark: '#c97d22',
+                    light: '#f0b56e',
                 },
             },
             fontFamily: {
@@ -43,15 +43,15 @@ export default {
                 },
             },
             boxShadow: {
-                soft: '0 10px 40px -12px rgba(18, 74, 92, 0.18)',
+                soft: '0 10px 40px -12px rgba(14, 146, 155, 0.18)',
                 glow: '0 0 40px -8px rgba(19, 184, 195, 0.45)',
-                'accent-glow': '0 12px 30px -10px rgba(247, 171, 86, 0.55)',
+                'accent-glow': '0 12px 30px -10px rgba(232, 157, 66, 0.55)',
             },
             backgroundImage: {
                 'grid-dots':
                     'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.14) 1px, transparent 0)',
                 'hero-gradient':
-                    'linear-gradient(135deg, #0d3644 0%, #124a5c 45%, #1a6881 100%)',
+                    'linear-gradient(135deg, #085a60 0%, #0e929b 45%, #13b8c3 100%)',
             },
             keyframes: {
                 float: {

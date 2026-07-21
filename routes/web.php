@@ -23,8 +23,7 @@ Route::get('/training-bags/{trainingBag:slug}', [TrainingBagController::class, '
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('/donate', [\App\Http\Controllers\DonationController::class, 'index'])->name('donate.index');
-Route::post('/donate', [\App\Http\Controllers\DonationController::class, 'store'])->name('donate.store');
+// ميزة التبرعات محذوفة — Techno Family موقع تعريفي مؤسسي
 
 /*
 |--------------------------------------------------------------------------
@@ -46,12 +45,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('contact-messages/{contactMessage}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'show'])->name('contact-messages.show');
     Route::delete('contact-messages/{contactMessage}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
 
-    Route::resource('bank-accounts', \App\Http\Controllers\Admin\BankAccountController::class)->except(['show']);
-
-    Route::get('donations', [\App\Http\Controllers\Admin\DonationController::class, 'index'])->name('donations.index');
-    Route::get('donations/{donation}', [\App\Http\Controllers\Admin\DonationController::class, 'show'])->name('donations.show');
-    Route::patch('donations/{donation}/status', [\App\Http\Controllers\Admin\DonationController::class, 'updateStatus'])->name('donations.update-status');
-    Route::delete('donations/{donation}', [\App\Http\Controllers\Admin\DonationController::class, 'destroy'])->name('donations.destroy');
+    // bank-accounts و donations محذوفة — Techno Family موقع تعريفي
 
     Route::get('settings', [\App\Http\Controllers\Admin\SiteSettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [\App\Http\Controllers\Admin\SiteSettingController::class, 'update'])->name('settings.update');

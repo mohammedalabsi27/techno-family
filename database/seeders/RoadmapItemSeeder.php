@@ -9,18 +9,19 @@ class RoadmapItemSeeder extends Seeder
 {
     public function run(): void
     {
-        // خارطة سير وقف التميز الأسري خلال السنوات الخمس (المحتوى الرسمي)
+        // مراحل تأسيس المؤسسة الوقفية للتطبيقات الأسرية من الكتيب (ص11)
         $items = [
-            ['icon' => 'fa-solid fa-calendar-days',     'title' => 'الخطة الاستراتيجية', 'description' => '5 سنوات'],
-            ['icon' => 'fa-solid fa-building',          'title' => 'البنية التحتية',     'description' => 'تجهيز المقر والكوادر والهوية'],
-            ['icon' => 'fa-solid fa-people-group',      'title' => 'الحوكمة الإدارية',   'description' => 'البناء الإداري والمالي والقانوني'],
-            ['icon' => 'fa-solid fa-people-roof',       'title' => 'البرامج الأسرية',    'description' => 'لجميع فئات الأسرة والمجتمع'],
-            ['icon' => 'fa-solid fa-lightbulb',         'title' => 'ابتكار المنتجات',    'description' => 'تصميم محتوى أسري متخصص'],
-            ['icon' => 'fa-solid fa-laptop-code',       'title' => 'البرامج التقنية',    'description' => 'برمجة المواقع والمنصات الأسرية'],
-            ['icon' => 'fa-solid fa-chart-line',        'title' => 'النمو والتميز',      'description' => 'الوصول للامتياز التجاري'],
+            ['icon' => 'fa-solid fa-magnifying-glass-chart', 'title' => 'حصر التطبيقات الأسرية', 'description' => 'معرفة الأنواع الأكثر احتياجاً لدى الأسر العربية'],
+            ['icon' => 'fa-solid fa-list-check',             'title' => 'حصر الاحتياجات التقنية', 'description' => 'ما المتوفر لدينا وما سنحتاجه مستقبلاً'],
+            ['icon' => 'fa-solid fa-compass',                'title' => 'التوجه الاستراتيجي',    'description' => 'تصوّر النتائج النهائية من وقت مبكر'],
+            ['icon' => 'fa-solid fa-route',                  'title' => 'توزيع المسارات',        'description' => 'أهداف واضحة لكل مسار لتحقيق التوازن'],
+            ['icon' => 'fa-solid fa-clipboard-list',         'title' => 'الخطط والنماذج الإدارية', 'description' => 'متابعة المخرجات والتقويم والتطوير المستمر'],
+            ['icon' => 'fa-solid fa-cubes',                  'title' => 'تصميم المنتجات التقنية', 'description' => 'مشاريع معينة على تحقيق الأهداف'],
+            ['icon' => 'fa-solid fa-bullseye',               'title' => 'صياغة مؤشرات الأداء',   'description' => 'لكل البرامج والتطبيقات وأدلتها'],
+            ['icon' => 'fa-solid fa-people-group',           'title' => 'تكوين فريق العمل',      'description' => 'توزيع المهام والأدوار والتدريب'],
         ];
 
-        // حذف البيانات المبدئية القديمة ثم إدخال المحتوى الصحيح
+        // حذف البيانات القديمة ثم إدخال المحتوى الصحيح
         RoadmapItem::query()->delete();
 
         foreach ($items as $index => $item) {

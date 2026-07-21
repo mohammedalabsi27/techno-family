@@ -62,19 +62,6 @@
         <h3 class="font-bold text-gray-700">عناصر الأثر المتوقع</h3>
     </a>
 
-    <a href="{{ route('admin.donations.index') }}" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all relative">
-        @if($stats['new_donations'] > 0)
-            <span class="absolute top-4 left-4 w-3 h-3 rounded-full bg-red-500"></span>
-        @endif
-        <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <i class="fa-solid fa-hand-holding-heart text-primary text-xl"></i>
-            </div>
-            <span class="text-3xl font-extrabold text-primary-dark">{{ $stats['new_donations'] }}</span>
-        </div>
-        <h3 class="font-bold text-gray-700">تبرعات جديدة</h3>
-    </a>
-
     <a href="{{ route('admin.contact-messages.index') }}" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all relative">
         @if($stats['unread_messages'] > 0)
             <span class="absolute top-4 left-4 w-3 h-3 rounded-full bg-red-500"></span>

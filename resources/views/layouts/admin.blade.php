@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'لوحة التحكم') - وقف التميز الأسري</title>
+    <title>@yield('title', 'لوحة التحكم') - تكنو فاملي</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,9 +16,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { DEFAULT: '#1a6881', dark: '#124a5c', light: '#22839f' },
-                        secondary: { DEFAULT: '#13b8c3', light: '#4fd0d9' },
-                        accent: { DEFAULT: '#f7ab56', dark: '#f39433' },
+                        primary: { DEFAULT: '#13b8c3', dark: '#0e929b', light: '#4fd0d9' },
+                        secondary: { DEFAULT: '#e89d42', light: '#f0b56e' },
+                        accent: { DEFAULT: '#e89d42', dark: '#c97d22' },
                     },
                     fontFamily: { cairo: ['Cairo', 'sans-serif'] },
                 }
@@ -39,7 +39,7 @@
                class="fixed lg:static inset-y-0 end-0 z-40 w-72 bg-primary-dark text-white transition-transform duration-300 flex flex-col">
             <div class="p-6 border-b border-white/10">
                 <h2 class="font-extrabold text-lg">لوحة التحكم</h2>
-                <p class="text-white/60 text-sm">وقف التميز الأسري</p>
+                <p class="text-white/60 text-sm">تكنو فاملي</p>
             </div>
 
             <nav class="flex-1 overflow-y-auto py-4 space-y-1 px-3">
@@ -52,8 +52,6 @@
                         ['route' => 'admin.impact-items.index', 'icon' => 'fa-chart-line', 'label' => 'الأثر المتوقع', 'match' => 'admin.impact-items.*'],
                         ['route' => 'admin.training-bag-categories.index', 'icon' => 'fa-layer-group', 'label' => 'تصنيفات الحقائب', 'match' => 'admin.training-bag-categories.*'],
                         ['route' => 'admin.training-bags.index', 'icon' => 'fa-briefcase', 'label' => 'الحقائب التدريبية', 'match' => 'admin.training-bags.*'],
-                        ['route' => 'admin.bank-accounts.index', 'icon' => 'fa-building-columns', 'label' => 'الحسابات البنكية', 'match' => 'admin.bank-accounts.*'],
-                        ['route' => 'admin.donations.index', 'icon' => 'fa-hand-holding-heart', 'label' => 'التبرعات', 'match' => 'admin.donations.*'],
                         ['route' => 'admin.contact-messages.index', 'icon' => 'fa-envelope', 'label' => 'رسائل التواصل', 'match' => 'admin.contact-messages.*'],
                         ['route' => 'admin.settings.edit', 'icon' => 'fa-gear', 'label' => 'إعدادات الموقع', 'match' => 'admin.settings.*'],
                     ];

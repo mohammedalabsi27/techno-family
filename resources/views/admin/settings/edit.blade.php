@@ -28,18 +28,13 @@
             </div>
         </div>
 
-        {{-- بيانات الوقف --}}
+        {{-- بيانات المؤسسة --}}
         <div>
-            <h3 class="font-bold text-primary-dark mb-4">بيانات الوقف</h3>
+            <h3 class="font-bold text-primary-dark mb-4">بيانات المؤسسة</h3>
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <label class="block font-semibold text-gray-700 mb-2">رقم ترخيص هيئة الأوقاف</label>
+                    <label class="block font-semibold text-gray-700 mb-2">رقم ترخيص وزارة التجارة</label>
                     <input type="text" name="waqf_license_number" value="{{ old('waqf_license_number', $settings->waqf_license_number) }}" dir="ltr"
-                           class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
-                </div>
-                <div>
-                    <label class="block font-semibold text-gray-700 mb-2">رقم صك الوقفية</label>
-                    <input type="text" name="waqf_deed_number" value="{{ old('waqf_deed_number', $settings->waqf_deed_number) }}" dir="ltr"
                            class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
                 </div>
             </div>

@@ -11,11 +11,9 @@
         <div class="container-x py-2 flex justify-between items-center">
             <div class="flex gap-6">
                 @if($settings->waqf_license_number)
-                    <span><i class="fa-solid fa-certificate ms-1 text-accent"></i> ترخيص هيئة الأوقاف: {{ $settings->waqf_license_number }}</span>
+                    <span><i class="fa-solid fa-certificate ms-1 text-accent"></i> ترخيص وزارة التجارة: {{ $settings->waqf_license_number }}</span>
                 @endif
-                @if($settings->waqf_deed_number)
-                    <span><i class="fa-solid fa-file-signature ms-1 text-accent"></i> رقم صك الوقفية: {{ $settings->waqf_deed_number }}</span>
-                @endif
+                <span><i class="fa-solid fa-vector-square ms-1 text-accent"></i> تكاملاً مع رؤية المملكة 2030</span>
             </div>
             <div class="flex items-center gap-4">
                 @if($settings->phone)
@@ -47,17 +45,11 @@
 
             <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
                 @if($settings->logo)
-                    <img src="{{ Storage::url($settings->logo) }}" alt="وقف التميز الأسري"
+                    <img src="{{ Storage::url($settings->logo) }}" alt="تكنو فاملي"
                          class="w-auto transition-all duration-300" :class="scrolled ? 'h-11' : 'h-14'">
                 @else
-                    <span class="flex items-center gap-3">
-                        <span class="w-11 h-11 rounded-xl bg-primary text-white grid place-items-center text-xl shadow-soft">
-                            <i class="fa-solid fa-people-roof"></i>
-                        </span>
-                        <span class="text-lg font-extrabold text-primary-dark leading-tight">
-                            وقف التميز <span class="text-secondary">الأسري</span>
-                        </span>
-                    </span>
+                    <img src="{{ asset('images/logo-technofamily.png') }}" alt="تكنو فاملي - تطبيقات الأسرة"
+                         class="w-auto transition-all duration-300" :class="scrolled ? 'h-11' : 'h-14'">
                 @endif
             </a>
 
@@ -66,14 +58,14 @@
                 <li><a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">الرئيسية</a></li>
                 <li><a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'is-active' : '' }}">من نحن</a></li>
                 <li><a href="{{ route('home') }}#value" class="nav-link">القيم</a></li>
-                <li><a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.*') ? 'is-active' : '' }}">البرامج</a></li>
-                <li><a href="{{ route('home') }}#map" class="nav-link">خارطة السير</a></li>
+                <li><a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.*') ? 'is-active' : '' }}">برامجنا</a></li>
+                <li><a href="{{ route('home') }}#map" class="nav-link">مراحل التأسيس</a></li>
                 <li><a href="{{ route('training-bags.index') }}" class="nav-link {{ request()->routeIs('training-bags.*') ? 'is-active' : '' }}">الحقائب التدريبية</a></li>
                 <li><a href="{{ route('contact.index') }}" class="nav-link {{ request()->routeIs('contact.*') ? 'is-active' : '' }}">تواصل معنا</a></li>
             </ul>
 
-            <a href="{{ route('donate.index') }}" class="hidden lg:inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-primary-dark font-extrabold px-6 py-2.5 rounded-xl shadow-accent-glow hover:-translate-y-0.5 transition-all">
-                <i class="fa-solid fa-hand-holding-heart"></i> تبرع الآن
+            <a href="{{ route('contact.index') }}" class="hidden lg:inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-extrabold px-6 py-2.5 rounded-xl shadow-accent-glow hover:-translate-y-0.5 transition-all">
+                <i class="fa-solid fa-handshake-angle"></i> كن شريكاً
             </a>
 
             {{-- زر قائمة الجوال --}}
@@ -93,12 +85,12 @@
         <a href="{{ route('home') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">الرئيسية</a>
         <a href="{{ route('about') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">من نحن</a>
         <a href="{{ route('home') }}#value" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">القيم</a>
-        <a href="{{ route('programs.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">البرامج</a>
-        <a href="{{ route('home') }}#map" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">خارطة السير</a>
+        <a href="{{ route('programs.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">برامجنا</a>
+        <a href="{{ route('home') }}#map" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">مراحل التأسيس</a>
         <a href="{{ route('training-bags.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">الحقائب التدريبية</a>
         <a href="{{ route('contact.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">تواصل معنا</a>
-        <a href="{{ route('donate.index') }}" class="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-primary-dark font-extrabold px-6 py-3 rounded-xl w-full mt-2 transition">
-            <i class="fa-solid fa-hand-holding-heart"></i> تبرع الآن
+        <a href="{{ route('contact.index') }}" class="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-extrabold px-6 py-3 rounded-xl w-full mt-2 transition">
+            <i class="fa-solid fa-handshake-angle"></i> كن شريكاً
         </a>
     </div>
 </header>

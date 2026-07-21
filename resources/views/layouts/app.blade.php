@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'وقف التميز الأسري')</title>
-    <meta name="description" content="@yield('meta_description', 'مؤسسة وقفية تعتني ببناء وتصميم البرامج الأسرية والتربوية والتعليمية')">
+    <title>@yield('title', 'تكنو فاملي | Techno Family')</title>
+    <meta name="description" content="@yield('meta_description', 'المؤسسة الوقفية لتطبيقات الأسرة — مؤسسة وقفية متخصصة في التنمية المستدامة التقنية لتحقيق جودة الحياة الأسرية')">
 
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'وقف التميز الأسري - الرئيسية')
+@section('title', 'تكنو فاملي | Techno Family - الرئيسية')
 
 @section('content')
 
@@ -11,21 +11,21 @@
     $slides = [
         [
             'image' => 'images/hero/slide-1.jpg',
-            'badge' => 'وقف التميز الأسري',
-            'title' => 'الحياة الأسرية من <span class="text-accent">المسؤولية</span> إلى الخيرية',
-            'text'  => $settings->about_short ?: 'مؤسسة وقفية تعتني ببناء وتصميم البرامج الأسرية والتربوية والتعليمية، ويُصرف ريعها في التنمية الأسرية والقيمية والاجتماعية.',
+            'badge' => 'المؤسسة الوقفية لتطبيقات الأسرة',
+            'title' => 'تسهيل التربية بواسطة <span class="text-accent">التقنية</span>',
+            'text'  => $settings->about_short ?: 'مؤسسة وقفية متخصصة في التنمية المستدامة التقنية، تسخّر التقنية بجميع مجالاتها لخدمة جميع أفراد الأسرة.',
         ],
         [
             'image' => 'images/hero/slide-2.jpg',
-            'badge' => 'رؤية مستدامة',
-            'title' => 'صدقة جارية <span class="text-accent">تبني</span> أسراً متماسكة',
-            'text'  => 'نستثمر ريع الوقف في تقوية روابط البر والصلة بين أفراد الأسرة، والعناية بالخدمات الإنسانية في المجتمع.',
+            'badge' => 'أن نصل لكل بيت',
+            'title' => 'مواقع ومنصات <span class="text-accent">وتطبيقات</span> وألعاب أسرية',
+            'text'  => 'نلبّي احتياجات الفرد في مجالات حياته المختلفة، في سياق المنظومة الأسرية والتربوية والثقافية والقيمية.',
         ],
         [
             'image' => 'images/hero/slide-3.jpg',
-            'badge' => 'برامج نوعية',
-            'title' => 'نُصمّم <span class="text-accent">برامج</span> ترتقي بالأسرة',
-            'text'  => 'برامج ومشاريع تدريبية وتأهيلية تُعنى بالاستقرار الأسري ورعاية النشء والشباب والشراكة المجتمعية.',
+            'badge' => 'تكاملاً مع رؤية المملكة 2030',
+            'title' => 'مجتمع حيوي <span class="text-accent">بنيانه</span> متين',
+            'text'  => 'نعزّز دور الأسرة في تنمية المجتمع والارتقاء بمهارات أبنائه معرفياً ومهارياً وسلوكياً.',
         ],
     ];
 @endphp
@@ -46,11 +46,10 @@
                         <div class="absolute inset-0 bg-dots opacity-40"></div>
                         <div class="absolute -top-24 -start-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float-slow"></div>
                         <div class="absolute -bottom-24 -end-24 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-
                         <div class="relative container-x grid lg:grid-cols-2 gap-12 items-center py-24">
                             <div class="text-white">
                                 <span class="pill bg-accent/20 text-accent mb-6">
-                                    <i class="fa-solid fa-heart"></i> {{ $slide['badge'] }}
+                                    <i class="fa-solid fa-microchip"></i> {{ $slide['badge'] }}
                                 </span>
                                 <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-6">
                                     {!! $slide['title'] !!}
@@ -60,7 +59,7 @@
                                 </p>
                                 <div class="flex flex-wrap gap-4">
                                     <a href="{{ route('programs.index') }}" class="btn-primary btn-lg">
-                                        <i class="fa-solid fa-layer-group"></i> تصفّح البرامج
+                                        <i class="fa-solid fa-layer-group"></i> برامجنا النوعية
                                     </a>
                                     <a href="{{ route('about') }}" class="btn-outline btn-lg">
                                         تعرّف علينا
@@ -95,62 +94,49 @@
         <div class="bg-white rounded-3xl shadow-soft border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-x divide-x-reverse divide-gray-100 overflow-hidden"
              data-aos="fade-up">
             <div class="p-6 md:p-8 text-center">
-                <span class="counter block text-3xl md:text-4xl font-extrabold text-primary" data-target="{{ $programs->count() }}">0</span>
-                <span class="text-gray-500 text-sm mt-1 block">برنامج ومشروع</span>
+                <span class="counter block text-3xl md:text-4xl font-extrabold text-primary" data-target="9">0</span>
+                <span class="text-gray-500 text-sm mt-1 block">برنامج نوعي</span>
             </div>
             <div class="p-6 md:p-8 text-center">
-                <span class="counter block text-3xl md:text-4xl font-extrabold text-secondary" data-target="{{ $totalBags }}">0</span>
-                <span class="text-gray-500 text-sm mt-1 block">حقيبة تدريبية</span>
+                <span class="counter block text-3xl md:text-4xl font-extrabold text-secondary" data-target="5">0</span>
+                <span class="text-gray-500 text-sm mt-1 block">فئات مستهدفة</span>
             </div>
             <div class="p-6 md:p-8 text-center">
-                <span class="counter block text-3xl md:text-4xl font-extrabold text-accent-dark" data-target="{{ $values->count() }}">0</span>
-                <span class="text-gray-500 text-sm mt-1 block">قيمة نؤمن بها</span>
+                <span class="counter block text-3xl md:text-4xl font-extrabold text-accent-dark" data-target="3">0</span>
+                <span class="text-gray-500 text-sm mt-1 block">سنوات خطة</span>
             </div>
             <div class="p-6 md:p-8 text-center">
-                <span class="counter block text-3xl md:text-4xl font-extrabold text-primary-dark" data-target="5">0</span>
-                <span class="text-gray-500 text-sm mt-1 block">سنوات خارطة السير</span>
+                <span class="counter block text-3xl md:text-4xl font-extrabold text-primary-dark" data-target="10">0</span>
+                <span class="text-gray-500 text-sm mt-1 block">مليون مستفيد مستهدف</span>
             </div>
         </div>
     </div>
 </section>
 
-{{-- ============ بشارة نبوية ============ --}}
-<section class="py-16">
-    <div class="container-x">
-        <div class="relative max-w-4xl mx-auto text-center bg-secondary/5 border border-secondary/10 rounded-3xl px-6 py-12" data-aos="zoom-in">
-            <i class="fa-solid fa-quote-right text-4xl text-secondary/60 mb-5"></i>
-            <p class="text-xl md:text-2xl font-semibold text-primary-dark leading-relaxed">
-                «إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقة جارية، أو علم يُنتفع به، أو ولد صالح يدعو له»
-            </p>
-            <span class="block mt-4 text-gray-500">رواه مسلم</span>
-        </div>
-    </div>
-</section>
-
-{{-- ============ نبذة عن الوقف ============ --}}
+{{-- ============ نبذة عن المؤسسة ============ --}}
 <section class="py-20">
     <div class="container-x grid lg:grid-cols-2 gap-14 items-center">
         <div class="relative" data-aos="fade-left">
             <div class="rounded-3xl overflow-hidden shadow-soft aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                 @if(file_exists(public_path('images/about.jpg')))
-                    <img src="{{ asset('images/about.jpg') }}" alt="عن الوقف" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/about.jpg') }}" alt="عن المؤسسة" class="w-full h-full object-cover">
                 @else
-                    <i class="fa-solid fa-mosque text-8xl text-primary/30"></i>
+                    <i class="fa-solid fa-laptop-code text-8xl text-primary/30"></i>
                 @endif
             </div>
             <div class="absolute -bottom-6 -start-6 bg-accent text-white rounded-2xl px-6 py-4 shadow-accent-glow hidden md:block">
-                <span class="block text-3xl font-extrabold counter" data-target="{{ $programs->count() }}">0</span>
-                <span class="text-sm">برامج رئيسية</span>
+                <span class="block text-3xl font-extrabold">2030</span>
+                <span class="text-sm">تكامل مع الرؤية</span>
             </div>
         </div>
         <div data-aos="fade-right">
             <span class="section-eyebrow">من نحن</span>
-            <h2 class="section-title mb-6">قيم وقف التميز الأسري</h2>
+            <h2 class="section-title mb-6">مؤسسة تقنية وقفية للأسرة</h2>
             <p class="text-gray-600 leading-8 mb-6">
-                وقف التميز الأسري يُصرف ريعه في التنمية الأسرية والقيمية والتعليمية والثقافية والاجتماعية، لتقوية روابط البر والصلة بين أفراد الأسرة، والعناية بالخدمات الإنسانية في المجتمع.
+                {{ $settings->about_short ?: 'مؤسسة وقفية متخصصة في التنمية المستدامة التقنية، تعمل على مبادرات تنموية لتحقيق جودة الحياة الأسرية، من خلال تسخير التقنية بجميع مجالاتها (مواقع ومنصات وتطبيقات وألعاب) لخدمة جميع أفراد الأسرة معرفياً ومهارياً وسلوكياً.' }}
             </p>
             <ul class="space-y-3 mb-8">
-                @foreach(['بناء وتصميم برامج أسرية نوعية', 'استدامة الأثر عبر ريع الوقف', 'شراكات مجتمعية فاعلة'] as $point)
+                @foreach(['أول مؤسسة متخصصة بالمنصات الأسرية', 'الأصالة والتجديد في المحتوى التقني', 'الشمولية للأسر والعاملين معها'] as $point)
                     <li class="flex items-center gap-3 text-gray-700">
                         <span class="w-6 h-6 shrink-0 rounded-full bg-secondary/15 text-secondary grid place-items-center text-xs"><i class="fa-solid fa-check"></i></span>
                         {{ $point }}
@@ -190,15 +176,46 @@
 </section>
 @endif
 
+{{-- ============ الفئات المستهدفة ============ --}}
+@php
+    $audiences = [
+        ['icon' => 'fa-solid fa-people-roof',      'title' => 'الأسرة',   'tag' => 'سعادة وطمأنينة'],
+        ['icon' => 'fa-solid fa-heart',            'title' => 'الزوجان',  'tag' => 'مودة ورحمة'],
+        ['icon' => 'fa-solid fa-hands-holding-child', 'title' => 'الوالدان', 'tag' => 'تربية وبناء'],
+        ['icon' => 'fa-solid fa-child-reaching',   'title' => 'الأطفال',  'tag' => 'إبداع وانطلاق'],
+        ['icon' => 'fa-solid fa-user-graduate',    'title' => 'الخبراء',  'tag' => 'خبرة وفاعلية'],
+    ];
+@endphp
+<section class="py-20">
+    <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+            <span class="section-eyebrow">لمن نعمل</span>
+            <h2 class="section-title">الفئات المستهدفة</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            @foreach($audiences as $audience)
+                <div class="card card-hover p-6 text-center group"
+                     data-aos="fade-up" data-aos-delay="{{ $loop->index * 40 }}">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary/15 text-secondary grid place-items-center text-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                        <i class="{{ $audience['icon'] }}"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800">{{ $audience['title'] }}</h3>
+                    <p class="text-gray-400 text-xs mt-1">{{ $audience['tag'] }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 {{-- ============ البرامج (شريط متحرك / كاروسيل) ============ --}}
 @if($programs->isNotEmpty())
-<section id="program" class="py-20">
+<section id="program" class="py-20 bg-gray-50">
     <div class="container-x">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14" data-aos="fade-up">
             <div class="max-w-2xl">
                 <span class="section-eyebrow">برامجنا</span>
-                <h2 class="section-title">البرامج ومشاريع الوقف</h2>
-                <p class="text-gray-500 mt-3">برامج ومشاريع الوقف التي تحتاج بناءً وتصميماً لخدمة الأسرة والمجتمع.</p>
+                <h2 class="section-title">البرامج التقنية النوعية</h2>
+                <p class="text-gray-500 mt-3">9 برامج تقنية نوعية موزّعة على ثلاث سنوات لخدمة الأسرة والمجتمع.</p>
             </div>
             <div class="flex items-center gap-3 shrink-0">
                 {{-- أزرار التنقّل --}}
@@ -217,11 +234,14 @@
                     <div class="swiper-slide h-auto">
                         <a href="{{ route('programs.show', $program) }}"
                            class="group card card-hover overflow-hidden flex flex-col h-full">
-                            <div class="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center overflow-hidden">
+                            <div class="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center overflow-hidden relative">
                                 @if($program->image)
                                     <img src="{{ Storage::url($program->image) }}" alt="{{ $program->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 @else
-                                    <i class="fa-solid fa-hands-holding-child text-5xl text-primary/30"></i>
+                                    <i class="fa-solid fa-microchip text-5xl text-primary/30"></i>
+                                @endif
+                                @if($program->year_label)
+                                    <span class="absolute top-3 end-3 pill bg-accent text-white text-xs !py-1 !px-3">{{ $program->year_label }}</span>
                                 @endif
                             </div>
                             <div class="p-6 flex flex-col flex-1">
@@ -247,30 +267,29 @@
 </section>
 @endif
 
-{{-- ============ خارطة السير ============ --}}
+{{-- ============ مراحل التأسيس ============ --}}
 @if($roadmapItems->isNotEmpty())
 <section id="map" class="py-24 bg-primary-dark text-white relative overflow-hidden">
     <div class="absolute inset-0 bg-dots opacity-50"></div>
     <div class="absolute -top-20 start-1/3 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
     <div class="relative container-x">
         <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <span class="text-accent font-bold">رؤيتنا المستقبلية</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mt-2">خارطة سير الوقف خلال السنوات الخمس</h2>
+            <span class="text-accent font-bold">منهجية العمل</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-2">مراحل تأسيس المؤسسة</h2>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-10 items-center">
 
-            {{-- صورة الكعبة --}}
+            {{-- بطاقة بصرية جانبية --}}
             <div class="lg:col-span-4 relative" data-aos="fade-left">
-                <div class="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] group">
-                    <img src="{{ asset('images/kaba.jpg') }}" alt="الكعبة المشرفة"
-                         class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-darker/80 via-transparent to-transparent"></div>
+                <div class="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] bg-hero-gradient aspect-[4/5] flex items-center justify-center group">
+                    <div class="absolute inset-0 bg-dots opacity-40"></div>
+                    <i class="fa-solid fa-diagram-project text-[7rem] text-white/90 relative"></i>
                     {{-- إطار داخلي --}}
                     <div class="absolute inset-3 rounded-2xl border border-white/25 pointer-events-none"></div>
                     <div class="absolute bottom-6 inset-x-6 text-center">
                         <span class="block h-1 w-12 bg-accent rounded-full mx-auto mb-3"></span>
-                        <p class="font-extrabold text-lg text-white leading-8">وقفٌ يمتد أثره بإذن الله</p>
+                        <p class="font-extrabold text-lg text-white leading-8">التوجه الاستراتيجي خلال 3 سنوات</p>
                     </div>
                 </div>
                 {{-- زخارف --}}
@@ -284,7 +303,7 @@
                     <div class="group {{ $loop->last && $loop->count % 3 === 1 ? 'xl:col-start-2' : '' }}"
                          data-aos="fade-up" data-aos-delay="{{ $loop->index * 40 }}">
                         <div class="glass rounded-2xl p-5 h-full text-center hover:bg-white/15 transition-all duration-300 group-hover:-translate-y-2">
-                            <span class="mx-auto w-14 h-14 flex items-center justify-center rounded-2xl bg-accent text-primary-dark text-2xl mb-4 shadow-accent-glow group-hover:scale-110 transition-transform duration-300">
+                            <span class="mx-auto w-14 h-14 flex items-center justify-center rounded-2xl bg-accent text-white text-2xl mb-4 shadow-accent-glow group-hover:scale-110 transition-transform duration-300">
                                 <i class="{{ $item->icon ?: 'fa-solid fa-flag' }}"></i>
                             </span>
                             @if($item->year_label)
@@ -303,13 +322,13 @@
 </section>
 @endif
 
-{{-- ============ الأثر المتوقع (سلايدر 3D) ============ --}}
+{{-- ============ العوائد والأثر المتوقع (سلايدر 3D) ============ --}}
 @if($impactItems->isNotEmpty())
 <section id="effect" class="py-20 bg-gray-50 overflow-hidden">
     <div class="container-x">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="section-eyebrow">ثمرة العمل</span>
-            <h2 class="section-title">الأثر المتوقع</h2>
+            <h2 class="section-title">العوائد والأثر المتوقع</h2>
         </div>
     </div>
 
@@ -324,7 +343,7 @@
                                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             @else
                                 <div class="absolute inset-0 bg-hero-gradient flex items-center justify-center">
-                                    <i class="fa-solid fa-seedling text-7xl text-white/25"></i>
+                                    <i class="fa-solid fa-chart-line text-7xl text-white/25"></i>
                                 </div>
                             @endif
                             {{-- تدرّج داكن أسفل البطاقة --}}
@@ -363,38 +382,80 @@
 </section>
 @endif
 
-{{-- ============ الحقائب التدريبية ============ --}}
-@if($trainingCategories->isNotEmpty())
+{{-- ============ تقاطعنا مع رؤية 2030 ============ --}}
+@php
+    $livability = ['الفرصة الاقتصادية والعلمية', 'البنية التحتية والنقل', 'السكن والتصميم الحضري والبيئة', 'الأمن والبيئة الاجتماعية', 'الرعاية الصحية'];
+    $lifestyle  = ['الثقافة والفنون', 'الرياضة', 'المشاركة الاجتماعية', 'الترفيه', 'الترويح'];
+@endphp
 <section class="py-20">
     <div class="container-x">
-        <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-            <span class="section-eyebrow">مكتبة المعرفة</span>
-            <h2 class="section-title">الحقائب التدريبية</h2>
+        <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+            <span class="section-eyebrow">رؤية المملكة 2030</span>
+            <h2 class="section-title">تقاطعنا مع الرؤية</h2>
+            <p class="text-gray-500 mt-3">نُسهم في تحقيق مستهدفات محور «مجتمع حيوي بنيانه متين» عبر مؤشرين رئيسيين.</p>
         </div>
-
-        <div class="relative bg-hero-gradient rounded-3xl p-10 md:p-14 text-center text-white mb-10 overflow-hidden" data-aos="zoom-in">
-            <div class="absolute inset-0 bg-dots opacity-40"></div>
-            <div class="absolute -top-16 -end-16 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
-            <div class="relative">
-                <span class="counter text-5xl md:text-6xl font-extrabold text-accent" data-target="{{ $totalBags }}">0</span>
-                <p class="text-xl mt-2 text-white/90">حقيبة تدريبية جاهزة</p>
-                <a href="{{ route('training-bags.index') }}" class="btn-ghost btn-md mt-6">تصفّح الحقائب <i class="fa-solid fa-arrow-left"></i></a>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card p-8" data-aos="fade-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-12 h-12 rounded-xl bg-primary text-white grid place-items-center text-xl shadow-soft"><i class="fa-solid fa-city"></i></span>
+                    <h3 class="text-xl font-extrabold text-primary-dark">مؤشر قابلية العيش</h3>
+                </div>
+                <ul class="space-y-3">
+                    @foreach($livability as $point)
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-primary/10 text-primary grid place-items-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            {{ $point }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="card p-8" data-aos="fade-up" data-aos-delay="120">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-12 h-12 rounded-xl bg-secondary text-white grid place-items-center text-xl shadow-soft"><i class="fa-solid fa-heart-pulse"></i></span>
+                    <h3 class="text-xl font-extrabold text-primary-dark">مؤشر نمط الحياة</h3>
+                </div>
+                <ul class="space-y-3">
+                    @foreach($lifestyle as $point)
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-secondary/15 text-secondary grid place-items-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            {{ $point }}
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            @foreach($trainingCategories as $category)
-                <a href="{{ route('training-bags.index', ['category' => $category->slug]) }}"
-                   class="text-center card card-hover p-6 group"
-                   data-aos="fade-up" data-aos-delay="{{ $loop->index * 40 }}">
-                    <span class="block text-3xl font-extrabold text-secondary counter" data-target="{{ $category->bags_count }}">0</span>
-                    <span class="text-gray-600 font-semibold group-hover:text-primary transition">{{ $category->name }}</span>
-                </a>
+{{-- ============ ما يميزنا ============ --}}
+@php
+    $features = [
+        ['icon' => 'fa-solid fa-award',        'title' => 'الأولى من نوعها', 'desc' => 'أول مؤسسة متخصصة بالمنصات الأسرية.'],
+        ['icon' => 'fa-solid fa-lightbulb',    'title' => 'الأصالة والتجديد', 'desc' => 'أصالة وتجديد في المحتوى التقني.'],
+        ['icon' => 'fa-solid fa-hands-holding-circle', 'title' => 'البعد الاجتماعي', 'desc' => 'اهتمام بالجانب الاجتماعي والتطبيقي.'],
+        ['icon' => 'fa-solid fa-layer-group',  'title' => 'الشمولية', 'desc' => 'شمولية للأسر والعاملين معها.'],
+    ];
+@endphp
+<section class="py-20 bg-gray-50">
+    <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+            <span class="section-eyebrow">لماذا نحن</span>
+            <h2 class="section-title">ما يميّز المشروع</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            @foreach($features as $feature)
+                <div class="card card-hover p-8 text-center group"
+                     data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-accent/15 text-accent-dark grid place-items-center text-2xl mb-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                        <i class="{{ $feature['icon'] }}"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">{{ $feature['title'] }}</h3>
+                    <p class="text-gray-500 text-sm leading-6">{{ $feature['desc'] }}</p>
+                </div>
             @endforeach
         </div>
     </div>
 </section>
-@endif
 
 {{-- ============ CTA تواصل ============ --}}
 <section class="py-16">
@@ -403,8 +464,8 @@
             <div class="absolute inset-0 bg-dots opacity-30"></div>
             <div class="absolute -bottom-20 -start-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
             <div class="relative max-w-2xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-extrabold mb-4">كن جزءاً من رحلة بناء الأسرة</h2>
-                <p class="text-white/90 mb-8">تواصل معنا لمعرفة المزيد عن برامجنا وفرص الشراكة والدعم.</p>
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-4">كن شريكاً في تسهيل التربية بالتقنية</h2>
+                <p class="text-white/90 mb-8">تواصل معنا لمعرفة المزيد عن برامجنا التقنية وفرص الشراكة والدعم.</p>
                 <a href="{{ route('contact.index') }}" class="btn-ghost btn-lg">
                     <i class="fa-solid fa-paper-plane"></i> تواصل معنا الآن
                 </a>

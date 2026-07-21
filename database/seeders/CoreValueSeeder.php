@@ -9,12 +9,13 @@ class CoreValueSeeder extends Seeder
 {
     public function run(): void
     {
+        // قيم Techno Family من الكتيب التعريفي (ص10)
         $values = [
-            ['title' => 'المسؤولية', 'icon' => 'fa-solid fa-hand-holding-heart'],
-            ['title' => 'الانتماء', 'icon' => 'fa-solid fa-people-roof'],
-            ['title' => 'الخيرية', 'icon' => 'fa-solid fa-hands-praying'],
-            ['title' => 'الابتكار', 'icon' => 'fa-solid fa-lightbulb'],
-            ['title' => 'الاستدامة', 'icon' => 'fa-solid fa-seedling'],
+            ['title' => 'المسؤولية', 'icon' => 'fa-solid fa-shield-halved'],
+            ['title' => 'الوعي', 'icon' => 'fa-solid fa-lightbulb'],
+            ['title' => 'التحفيز', 'icon' => 'fa-solid fa-bolt'],
+            ['title' => 'الترابط', 'icon' => 'fa-solid fa-link'],
+            ['title' => 'التنمية', 'icon' => 'fa-solid fa-seedling'],
         ];
 
         foreach ($values as $index => $value) {

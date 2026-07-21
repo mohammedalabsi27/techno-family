@@ -9,6 +9,7 @@ class Program extends Model
 {
     protected $fillable = [
         'title',
+        'year_label',
         'slug',
         'image',
         'short_description',
