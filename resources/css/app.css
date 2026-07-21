@@ -1,5 +1,5 @@
 /* ===== الخطوط العربية (Cairo + Tajawal) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* ===== مكتبات الطرف الثالث ===== */
 @import 'aos/dist/aos.css';
@@ -13,59 +13,42 @@
    طبقة الأساس (Base)
    ============================================================ */
 @layer base {
-    html {
-        scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
         @apply font-cairo text-gray-700 bg-white antialiased;
     }
 
-    /* إخفاء العناصر قبل تهيئة Alpine لمنع الوميض */
-    [x-cloak] {
-        display: none !important;
-    }
+    [x-cloak] { display: none !important; }
 
     ::selection {
         @apply bg-secondary/20 text-primary-dark;
     }
 
-    /* شريط تمرير مخصّص */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-        @apply bg-gray-100;
-    }
-    ::-webkit-scrollbar-thumb {
-        @apply bg-primary/40 rounded-full;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-primary/70;
-    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { @apply bg-gray-100; }
+    ::-webkit-scrollbar-thumb { @apply bg-primary/40 rounded-full; }
+    ::-webkit-scrollbar-thumb:hover { @apply bg-primary/70; }
 }
 
 /* ============================================================
    المكوّنات (Components)
    ============================================================ */
 @layer components {
-    /* ---- الحاوية ---- */
     .container-x {
         @apply container mx-auto px-4 lg:px-8;
     }
 
-    /* ---- الأزرار ---- */
+    /* ---- أزرار ---- */
     .btn {
         @apply inline-flex items-center justify-center gap-2 font-bold rounded-full
                transition-all duration-300 focus:outline-none focus-visible:ring-2
                focus-visible:ring-offset-2 focus-visible:ring-secondary;
     }
-    .btn-lg {
-        @apply px-8 py-3.5 text-base;
-    }
-    .btn-md {
-        @apply px-6 py-2.5 text-sm;
-    }
+    .btn-lg  { @apply px-8 py-3.5 text-base; }
+    .btn-md  { @apply px-6 py-2.5 text-sm; }
+    .btn-sm  { @apply px-4 py-2 text-sm; }
+
     .btn-primary {
         @apply btn bg-accent text-white shadow-accent-glow
                hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0;
@@ -77,6 +60,10 @@
         @apply btn bg-white text-primary-dark shadow-soft
                hover:bg-accent hover:text-white hover:-translate-y-0.5;
     }
+    .btn-teal {
+        @apply btn bg-primary text-white shadow-glow
+               hover:bg-primary-dark hover:-translate-y-0.5;
+    }
 
     /* ---- ترويسة الأقسام ---- */
     .section-eyebrow {
@@ -86,26 +73,28 @@
         @apply text-3xl md:text-4xl font-extrabold text-primary-dark leading-tight;
     }
 
-    /* ---- البطاقات ---- */
+    /* ---- بطاقات ---- */
     .card {
-        @apply bg-white rounded-2xl border border-gray-100 shadow-sm
-               transition-all duration-300;
+        @apply bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300;
     }
     .card-hover {
         @apply hover:shadow-soft hover:-translate-y-2;
     }
 
-    /* ---- تأثير زجاجي ---- */
+    /* ---- زجاجي ---- */
     .glass {
         @apply bg-white/10 backdrop-blur-md border border-white/20;
     }
+    .glass-dark {
+        @apply bg-black/20 backdrop-blur-md border border-white/10;
+    }
 
-    /* ---- شارة (Pill) ---- */
+    /* ---- Pill / Badge ---- */
     .pill {
         @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold;
     }
 
-    /* ---- خط سفلي متحرك لروابط التنقّل ---- */
+    /* ---- روابط التنقل ---- */
     .nav-link {
         @apply relative transition-colors duration-300 hover:text-secondary;
     }
@@ -114,20 +103,19 @@
         @apply absolute -bottom-1.5 right-0 h-0.5 w-0 bg-secondary rounded-full transition-all duration-300;
     }
     .nav-link:hover::after,
-    .nav-link.is-active::after {
-        @apply w-full;
-    }
-    .nav-link.is-active {
-        @apply text-secondary;
-    }
+    .nav-link.is-active::after { @apply w-full; }
+    .nav-link.is-active         { @apply text-secondary; }
 }
 
 /* ============================================================
-   أدوات مساعدة (Utilities)
+   أدوات (Utilities)
    ============================================================ */
 @layer utilities {
     .text-gradient {
         @apply bg-gradient-to-l from-secondary to-accent bg-clip-text text-transparent;
+    }
+    .text-gradient-teal {
+        @apply bg-gradient-to-l from-primary to-primary-light bg-clip-text text-transparent;
     }
 
     .counter {
@@ -136,26 +124,259 @@
         font-variant-numeric: tabular-nums;
     }
 
-    /* شبكة نقطية للخلفيات الداكنة */
+    /* شبكة نقطية بيضاء للخلفيات الداكنة */
     .bg-dots {
-        background-image: radial-gradient(
-            circle at 2px 2px,
-            rgba(255, 255, 255, 0.08) 1px,
-            transparent 0
-        );
+        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
         background-size: 26px 26px;
+    }
+    /* شبكة نقطية داكنة للخلفيات الفاتحة */
+    .bg-dots-dark {
+        background-image: radial-gradient(circle at 2px 2px, rgba(14,146,155,0.12) 1px, transparent 0);
+        background-size: 28px 28px;
+    }
+    /* خطوط شبكية تقنية */
+    .bg-grid {
+        background-image:
+            linear-gradient(rgba(19,184,195,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(19,184,195,0.06) 1px, transparent 1px);
+        background-size: 40px 40px;
     }
 }
 
 /* ============================================================
-   تخصيص Swiper بألوان الهوية
+   HERO SECTION — تصميم تقني داكن
+   ============================================================ */
+.hero-section {
+    background: linear-gradient(135deg, #052c30 0%, #085a60 35%, #0e929b 70%, #13b8c3 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* خلفية الشبكة التقنية */
+.hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* ============================================================
+   TYPEWRITER
+   ============================================================ */
+.typewriter-wrap {
+    display: inline-block;
+    position: relative;
+}
+.typewriter-text {
+    @apply text-accent font-extrabold;
+}
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: #e89d42;
+    margin-right: 4px;
+    vertical-align: middle;
+    border-radius: 2px;
+    animation: blink-cursor 0.8s step-end infinite;
+}
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ============================================================
+   عناصر عائمة تقنية (Floating Code Blocks)
+   ============================================================ */
+.floating-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    position: absolute;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+.fc-1  { top: 12%;  left: 5%;  animation: fc-float1 8s  ease-in-out infinite; }
+.fc-2  { top: 25%;  right: 8%; animation: fc-float2 11s ease-in-out infinite; }
+.fc-3  { top: 60%;  left: 3%;  animation: fc-float1 9s  ease-in-out infinite 2s; }
+.fc-4  { top: 75%;  right: 5%; animation: fc-float2 7s  ease-in-out infinite 1s; }
+.fc-5  { top: 45%;  left: 45%; animation: fc-float1 13s ease-in-out infinite 3s; }
+
+@keyframes fc-float1 {
+    0%, 100% { transform: translateY(0)   rotate(-2deg); opacity: 0.2; }
+    50%       { transform: translateY(-20px) rotate(2deg); opacity: 0.4; }
+}
+@keyframes fc-float2 {
+    0%, 100% { transform: translateY(0)   rotate(3deg);  opacity: 0.15; }
+    50%       { transform: translateY(18px)  rotate(-3deg); opacity: 0.35; }
+}
+
+/* ============================================================
+   الحلقة المتحركة حول الأيقونة المركزية في Hero
+   ============================================================ */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,0.15);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.orbit-ring-1 { width: 280px; height: 280px; animation: spin-slow  20s linear infinite; }
+.orbit-ring-2 { width: 380px; height: 380px; animation: spin-slow  30s linear infinite reverse; }
+.orbit-ring-3 { width: 480px; height: 480px; animation: spin-slow  40s linear infinite; }
+
+@keyframes spin-slow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* أيقونات صغيرة على الحلقات */
+.orbit-dot {
+    position: absolute;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    top: 0; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   شريط الإحصائيات
+   ============================================================ */
+.stats-strip {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 -4px 60px -10px rgba(8,90,96,0.2), 0 10px 40px -12px rgba(14,146,155,0.15);
+}
+
+/* ============================================================
+   قسم البرامج — تبويبات السنوات
+   ============================================================ */
+.year-tab {
+    @apply px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer;
+    border: 2px solid transparent;
+}
+.year-tab.active {
+    @apply bg-primary text-white shadow-glow;
+}
+.year-tab:not(.active) {
+    @apply text-gray-500 hover:text-primary border-gray-200 hover:border-primary/30;
+}
+
+/* ============================================================
+   قسم القيم — خلفية داكنة مع glow
+   ============================================================ */
+.value-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1.25rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.value-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-6px);
+    border-color: rgba(19,184,195,0.4);
+    box-shadow: 0 0 30px rgba(19,184,195,0.15);
+}
+.value-icon {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, rgba(19,184,195,0.3), rgba(232,157,66,0.3));
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s;
+}
+.value-card:hover .value-icon {
+    background: linear-gradient(135deg, #13b8c3, #e89d42);
+    box-shadow: 0 8px 25px rgba(19,184,195,0.4);
+}
+
+/* ============================================================
+   قسم العوائد (Impact) — 4 بطاقات كبيرة
+   ============================================================ */
+.impact-card-new {
+    position: relative;
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+.impact-card-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(19,184,195,0.15), rgba(232,157,66,0.08));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.impact-card-new:hover::before { opacity: 1; }
+.impact-card-new:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(8,90,96,0.3);
+}
+.impact-label {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #e89d42, #f0b56e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   Timeline — مراحل التأسيس
+   ============================================================ */
+.timeline-line {
+    position: absolute;
+    top: 24px;
+    left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #13b8c3, #e89d42, #13b8c3);
+    opacity: 0.3;
+}
+.timeline-item {
+    position: relative;
+    text-align: center;
+}
+.timeline-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+}
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(19,184,195,0.5);
+}
+
+/* ============================================================
+   Swiper — سلايدر الهيرو
    ============================================================ */
 .hero-swiper .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
+    width: 10px; height: 10px;
+    background: rgba(255,255,255,0.5);
     opacity: 1;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 .hero-swiper .swiper-pagination-bullet-active {
     width: 30px;
@@ -165,99 +386,48 @@
 .hero-swiper .swiper-button-next,
 .hero-swiper .swiper-button-prev {
     color: #fff;
-    width: 48px;
-    height: 48px;
+    width: 48px; height: 48px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255,255,255,0.12);
     backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.3s;
 }
 .hero-swiper .swiper-button-next:hover,
-.hero-swiper .swiper-button-prev:hover {
-    background: rgba(232, 157, 66, 0.9);
-}
+.hero-swiper .swiper-button-prev:hover { background: rgba(232,157,66,0.9); }
 .hero-swiper .swiper-button-next::after,
-.hero-swiper .swiper-button-prev::after {
-    font-size: 18px;
-    font-weight: 700;
-}
+.hero-swiper .swiper-button-prev::after { font-size: 18px; font-weight: 700; }
 
-/* ===== نقاط كاروسيل البرامج ===== */
+/* ---- نقاط كاروسيل البرامج ---- */
 .programs-bullet {
-    width: 10px;
-    height: 10px;
+    width: 10px; height: 10px;
     border-radius: 9999px;
     background: #cbd5e1;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
-.programs-bullet-active {
-    width: 28px;
-    background: #13b8c3;
-}
+.programs-bullet-active { width: 28px; background: #13b8c3; }
 
 /* ============================================================
-   سلايدر «الأثر المتوقع» ثلاثي الأبعاد (Coverflow)
+   Keyframes عامة
    ============================================================ */
-.impact-swiper {
-    padding-top: 12px;
-    padding-bottom: 28px;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-16px); }
 }
-/* نقاط سلايدر الأثر — بلون الأكسنت */
-.impact-pagination {
-    /* إلغاء تموضع Swiper الافتراضي (width:100% + absolute) حتى تبقى النقاط في الوسط */
-    position: static !important;
-    width: auto !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50%       { transform: translateY(-24px) translateX(12px); }
 }
-.impact-bullet {
-    width: 10px;
-    height: 10px;
-    border-radius: 9999px;
-    background: #cbd5e1;
-    cursor: pointer;
-    transition: all 0.3s ease;
+@keyframes pulse-ring {
+    0%         { transform: scale(0.9); opacity: 0.7; }
+    70%, 100%  { transform: scale(1.5); opacity: 0; }
 }
-.impact-bullet-active {
-    width: 28px;
-    background: #e89d42;
+@keyframes fade-in-up {
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
-.impact-slide {
-    transition: opacity 0.5s ease, filter 0.5s ease;
-}
-/* تعتيم الشرائح الجانبية لإبراز الشريحة النشطة */
-.impact-swiper .swiper-slide:not(.swiper-slide-active) .impact-card {
-    filter: brightness(0.72) saturate(0.85);
-}
-.impact-swiper .swiper-slide-active .impact-card {
-    box-shadow: 0 25px 60px -15px rgba(8, 90, 96, 0.45);
-}
-/* شارة الأكسنت والخط السفلي تظهر فقط على الشريحة النشطة */
-.impact-swiper .swiper-slide:not(.swiper-slide-active) .impact-card .shadow-accent-glow {
-    opacity: 0;
-    transform: scale(0.6);
-}
-.impact-swiper .impact-card .shadow-accent-glow {
-    transition: opacity 0.45s ease, transform 0.45s ease;
-}
-/* ظلال Swiper ثلاثية الأبعاد بزوايا دائرية تطابق البطاقة */
-.impact-swiper .swiper-slide-shadow-left,
-.impact-swiper .swiper-slide-shadow-right {
-    border-radius: 1.5rem;
-    background-image: linear-gradient(
-        to left,
-        rgba(8, 90, 96, 0.35),
-        rgba(8, 90, 96, 0)
-    );
-}
-.impact-swiper .swiper-slide-shadow-right {
-    background-image: linear-gradient(
-        to right,
-        rgba(8, 90, 96, 0.35),
-        rgba(8, 90, 96, 0)
-    );
+@keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50%       { background-position: 100% 50%; }
 }

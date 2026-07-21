@@ -37,11 +37,17 @@
               class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">{{ old('description', $program->description ?? '') }}</textarea>
 </div>
 
-<div class="grid md:grid-cols-2 gap-6 mt-6">
+<div class="grid md:grid-cols-3 gap-6 mt-6">
     <div>
         <label class="block font-semibold text-gray-700 mb-2">الترتيب</label>
         <input type="number" name="order" value="{{ old('order', $program->order ?? 0) }}"
                class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
+    </div>
+    <div>
+        <label class="block font-semibold text-gray-700 mb-2"> السنة </label>
+        <input type="text" name="year_label" value="{{ old('year_label', $program->year_label ?? '') }}"
+               class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
+        @error('year_label') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
     </div>
     <div class="flex items-center gap-3 pt-8">
         <input type="checkbox" name="is_active" value="1" id="is_active"

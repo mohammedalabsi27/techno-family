@@ -30,7 +30,6 @@
             <ul class="space-y-3 text-white/70 text-sm">
                 <li><a href="{{ route('about') }}" class="inline-flex items-center gap-2 hover:text-accent hover:gap-3 transition-all"><i class="fa-solid fa-angle-left text-xs text-accent"></i> من نحن</a></li>
                 <li><a href="{{ route('programs.index') }}" class="inline-flex items-center gap-2 hover:text-accent hover:gap-3 transition-all"><i class="fa-solid fa-angle-left text-xs text-accent"></i> برامجنا</a></li>
-                <li><a href="{{ route('training-bags.index') }}" class="inline-flex items-center gap-2 hover:text-accent hover:gap-3 transition-all"><i class="fa-solid fa-angle-left text-xs text-accent"></i> الحقائب التدريبية</a></li>
                 <li><a href="{{ route('contact.index') }}" class="inline-flex items-center gap-2 hover:text-accent hover:gap-3 transition-all"><i class="fa-solid fa-angle-left text-xs text-accent"></i> تواصل معنا</a></li>
             </ul>
         </div>

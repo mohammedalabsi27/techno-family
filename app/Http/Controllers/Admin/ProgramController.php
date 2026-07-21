@@ -76,6 +76,7 @@ class ProgramController extends Controller
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'order' => ['nullable', 'integer'],
+            'year_label' => ['nullable', 'string', 'max:255'],
             'is_active' => ['boolean'],
         ]);
     }

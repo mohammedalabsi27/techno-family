@@ -17,6 +17,7 @@
                 <th class="px-6 py-4">العنوان</th>
                 <th class="px-6 py-4">الترتيب</th>
                 <th class="px-6 py-4">الحالة</th>
+                <th class="px-6 py-4">السنة</th>
                 <th class="px-6 py-4">إجراءات</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                             <span class="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-xs font-semibold">معطّل</span>
                         @endif
                     </td>
+                    <td class="px-6 py-4 text-gray-500">{{ $program->year_label }}</td>
                     <td class="px-6 py-4">
                         <div class="flex gap-3">
                             <a href="{{ route('programs.show', $program) }}" target="_blank" class="text-gray-400 hover:text-primary"><i class="fa-solid fa-eye"></i></a>
@@ -51,7 +53,7 @@
                     </td>
                 </tr>
             @empty
-                <tr><td colspan="5" class="px-6 py-10 text-center text-gray-400">لا توجد بيانات بعد</td></tr>
+                <tr><td colspan="6" class="px-6 py-10 text-center text-gray-400">لا توجد بيانات بعد</td></tr>
             @endforelse
         </tbody>
     </table>

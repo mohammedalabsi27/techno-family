@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'تواصل معنا - وقف التميز الأسري')
+@section('title', 'تواصل معنا - تكنو فاملي')
 
 @section('content')
 

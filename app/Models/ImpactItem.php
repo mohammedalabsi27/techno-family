@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ImpactItem extends Model
 {
     protected $fillable = [
+        'label',
         'title',
         'image',
         'order',

@@ -60,7 +60,6 @@
                 <li><a href="{{ route('home') }}#value" class="nav-link">القيم</a></li>
                 <li><a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.*') ? 'is-active' : '' }}">برامجنا</a></li>
                 <li><a href="{{ route('home') }}#map" class="nav-link">مراحل التأسيس</a></li>
-                <li><a href="{{ route('training-bags.index') }}" class="nav-link {{ request()->routeIs('training-bags.*') ? 'is-active' : '' }}">الحقائب التدريبية</a></li>
                 <li><a href="{{ route('contact.index') }}" class="nav-link {{ request()->routeIs('contact.*') ? 'is-active' : '' }}">تواصل معنا</a></li>
             </ul>
 
@@ -87,7 +86,6 @@
         <a href="{{ route('home') }}#value" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">القيم</a>
         <a href="{{ route('programs.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">برامجنا</a>
         <a href="{{ route('home') }}#map" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">مراحل التأسيس</a>
-        <a href="{{ route('training-bags.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">الحقائب التدريبية</a>
         <a href="{{ route('contact.index') }}" class="block py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-secondary transition">تواصل معنا</a>
         <a href="{{ route('contact.index') }}" class="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-extrabold px-6 py-3 rounded-xl w-full mt-2 transition">
             <i class="fa-solid fa-handshake-angle"></i> كن شريكاً

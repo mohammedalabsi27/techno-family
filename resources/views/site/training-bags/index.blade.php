@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'الحقائب التدريبية - وقف التميز الأسري')
+@section('title', 'الحقائب التدريبية - تكنو فاملي')
 
 @section('content')
 
 @include('site.partials.page-header', [
-    'badge' => 'مكتبة المعرفة',
-    'title' => 'الحقائب التدريبية',
+    'badge'      => 'مكتبة المعرفة',
+    'title'      => 'الحقائب التدريبية',
     'breadcrumb' => ['الحقائب التدريبية' => null],
-    'image' => 'images/headers/training-bags.jpg',
+    'image'      => 'images/headers/training-bags.jpg',
 ])
 
 <section class="py-16">

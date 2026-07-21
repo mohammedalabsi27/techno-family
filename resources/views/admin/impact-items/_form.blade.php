@@ -1,8 +1,21 @@
 @csrf
 
 <div>
-    <label class="block font-semibold text-gray-700 mb-2">العنوان</label>
+    <label class="block font-semibold text-gray-700 mb-2">
+        الكلمة البارزة <span class="text-gray-400 font-normal"></span>
+    </label>
+    <input type="text" name="label" value="{{ old('label', $item->label ?? '') }}"
+           placeholder="إثراء"
+           class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
+    @error('label') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
+</div>
+
+<div class="mt-6">
+    <label class="block font-semibold text-gray-700 mb-2">
+        وصف العائد <span class="text-gray-400 font-normal"></span>
+    </label>
     <input type="text" name="title" value="{{ old('title', $item->title ?? '') }}" required
+           placeholder="المجال الأسري بالابتكار التقني"
            class="w-full rounded-xl border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/30 px-4 py-3">
     @error('title') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
 </div>

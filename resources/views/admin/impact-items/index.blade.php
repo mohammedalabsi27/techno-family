@@ -14,7 +14,8 @@
         <thead class="bg-gray-50 text-gray-500 font-semibold">
             <tr>
                 <th class="px-6 py-4">الصورة</th>
-                <th class="px-6 py-4">العنوان</th>
+                <th class="px-6 py-4">العائد</th>
+                <th class="px-6 py-4">وصف العائد</th>
                 <th class="px-6 py-4">الترتيب</th>
                 <th class="px-6 py-4">الحالة</th>
                 <th class="px-6 py-4">إجراءات</th>
@@ -30,7 +31,8 @@
                             <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent-dark"><i class="fa-solid fa-check"></i></div>
                         @endif
                     </td>
-                    <td class="px-6 py-4 font-semibold">{{ $item->title }}</td>
+                    <td class="px-6 py-4 font-semibold">{{ $item->label }}</td>
+                    <td class="px-6 py-4 text-gray-500">{{ $item->title }}</td>
                     <td class="px-6 py-4 text-gray-500">{{ $item->order }}</td>
                     <td class="px-6 py-4">
                         @if($item->is_active)

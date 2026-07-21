@@ -70,9 +70,10 @@ class ImpactItemController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'image' => ['nullable', 'image', 'max:2048'],
-            'order' => ['nullable', 'integer'],
+            'label'     => ['nullable', 'string', 'max:100'],
+            'title'     => ['required', 'string', 'max:255'],
+            'image'     => ['nullable', 'image', 'max:2048'],
+            'order'     => ['nullable', 'integer'],
             'is_active' => ['boolean'],
         ]);
     }
