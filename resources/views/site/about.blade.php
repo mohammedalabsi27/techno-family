@@ -12,13 +12,15 @@
     'image'      => 'images/headers/about.jpg',
 ])
 
-{{-- ============ 1. النبذة + أرقام ============ --}}
-<section class="py-20">
-    <div class="container-x">
-        <div class="grid lg:grid-cols-5 gap-12 items-center">
+{{-- ============ 1. النبذة + صورة بأرقام عائمة ============ --}}
+<section class="py-20 lg:py-24 relative overflow-hidden">
+    <div class="absolute top-10 end-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
 
-            {{-- النص — 3 أعمدة --}}
-            <div class="lg:col-span-3" data-aos="fade-left">
+    <div class="relative container-x">
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            {{-- النص --}}
+            <div data-aos="fade-left">
                 <span class="section-eyebrow">مؤسسة وقفية تقنية</span>
                 <h2 class="section-title mb-6">نُسخِّر التقنية لخدمة الأسرة</h2>
                 <p class="text-gray-600 leading-8 mb-4">
@@ -38,72 +40,120 @@
                 @endif
             </div>
 
-            {{-- الأرقام — 2 عمودان --}}
-            <div class="lg:col-span-2 grid grid-cols-2 gap-4" data-aos="fade-right">
-                @php
-                $kpis = [
-                    ['num'=>'9',    'unit'=>'برامج', 'label'=>'نوعية تقنية',      'color'=>'from-primary to-primary-dark',     'icon'=>'fa-layer-group'],
-                    ['num'=>'5',    'unit'=>'فئات',  'label'=>'مستهدفة',          'color'=>'from-secondary to-secondary-dark', 'icon'=>'fa-users'],
-                    ['num'=>'3',    'unit'=>'سنوات', 'label'=>'خطة استراتيجية',   'color'=>'from-accent to-accent-dark',       'icon'=>'fa-calendar-check'],
-                    ['num'=>'10M',  'unit'=>'+',     'label'=>'مستفيد مستهدف',    'color'=>'from-primary-dark to-primary-darker','icon'=>'fa-globe'],
-                ];
-                @endphp
-                @foreach($kpis as $i => $kpi)
-                <div class="relative rounded-2xl bg-gradient-to-br {{ $kpi['color'] }} p-5 text-white overflow-hidden group
-                            {{ $i === 3 ? 'col-span-2' : '' }}"
-                     data-aos="zoom-in" data-aos-delay="{{ $i * 80 }}">
-                    <div class="absolute -top-3 -end-3 w-16 h-16 rounded-full bg-white/10"></div>
-                    <i class="fa-solid {{ $kpi['icon'] }} text-2xl text-white/40 mb-3 block"></i>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-3xl font-black">{{ $kpi['num'] }}</span>
-                        <span class="text-sm font-bold text-white/80">{{ $kpi['unit'] }}</span>
-                    </div>
-                    <p class="text-white/70 text-xs mt-1">{{ $kpi['label'] }}</p>
+            {{-- الصورة + الأرقام العائمة --}}
+            <div class="relative mx-6 sm:mx-10 lg:mx-6 my-8" data-aos="fade-right">
+                {{-- زخارف خلفية --}}
+                <div class="absolute -top-8 -end-8 w-40 h-40 bg-dots-dark rounded-3xl"></div>
+                <div class="absolute -bottom-10 -start-10 w-44 h-44 rounded-full border-[14px] border-accent/10"></div>
+
+                {{-- الصورة --}}
+                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/4.6] shadow-soft">
+                    @if(file_exists(public_path('images/about-main.jpg')))
+                        <img src="{{ asset('images/about-main.jpg') }}" alt="مؤسسة تكنو فاملي" class="w-full h-full object-cover">
+                    @else
+                        <div class="w-full h-full bg-gradient-to-b from-primary via-primary-dark to-primary-darker relative">
+                            <div class="absolute inset-0 bg-dots opacity-30"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white/80">
+                                <i class="fa-solid fa-house-laptop text-5xl"></i>
+                                <span class="text-xs font-bold text-white/50" dir="ltr">images/about-main.jpg</span>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-darker/30 to-transparent"></div>
                 </div>
-                @endforeach
+
+                {{-- بطاقات الأرقام العائمة --}}
+                <div class="absolute top-8 -start-6 sm:-start-10 bg-white/95 backdrop-blur rounded-2xl shadow-soft px-4 py-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300"
+                     data-aos="zoom-in" data-aos-delay="200">
+                    <span class="w-10 h-10 rounded-xl bg-primary/10 text-primary grid place-items-center"><i class="fa-solid fa-layer-group"></i></span>
+                    <div>
+                        <span class="block text-xl font-black text-gray-800 leading-none">9</span>
+                        <span class="text-[11px] text-gray-500 font-bold">برامج نوعية</span>
+                    </div>
+                </div>
+
+                <div class="absolute top-1/3 -end-5 sm:-end-9 bg-white/95 backdrop-blur rounded-2xl shadow-soft px-4 py-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300"
+                     data-aos="zoom-in" data-aos-delay="320">
+                    <span class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary-dark grid place-items-center"><i class="fa-solid fa-users"></i></span>
+                    <div>
+                        <span class="block text-xl font-black text-gray-800 leading-none">5</span>
+                        <span class="text-[11px] text-gray-500 font-bold">فئات مستهدفة</span>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-1/4 -start-5 sm:-start-9 bg-white/95 backdrop-blur rounded-2xl shadow-soft px-4 py-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300"
+                     data-aos="zoom-in" data-aos-delay="440">
+                    <span class="w-10 h-10 rounded-xl bg-primary-dark/10 text-primary-dark grid place-items-center"><i class="fa-solid fa-calendar-check"></i></span>
+                    <div>
+                        <span class="block text-xl font-black text-gray-800 leading-none">3</span>
+                        <span class="text-[11px] text-gray-500 font-bold">سنوات خطة استراتيجية</span>
+                    </div>
+                </div>
+
+                {{-- الرقم الأكبر — بطاقة برتقالية --}}
+                <div class="absolute -bottom-7 end-6 sm:end-10 bg-gradient-to-br from-accent to-accent-dark text-white rounded-2xl shadow-accent-glow px-5 py-4 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300"
+                     data-aos="zoom-in" data-aos-delay="560">
+                    <span class="w-11 h-11 rounded-xl bg-white/15 grid place-items-center text-lg"><i class="fa-solid fa-globe"></i></span>
+                    <div>
+                        <span class="block text-2xl font-black leading-none">10M+</span>
+                        <span class="text-[11px] text-white/85 font-bold">مستفيد مستهدف</span>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
 
-{{-- ============ 2. الرؤية والرسالة — تصميم أفقي داكن ============ --}}
-<section class="py-16 bg-primary-darker relative overflow-hidden">
-    <div class="absolute inset-0 bg-dots opacity-30"></div>
-    <div class="absolute -top-20 end-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+{{-- ============ 2. الرؤية والرسالة — لوحان متمايلان + بوصلة مركزية ============ --}}
+<section class="py-20 bg-primary-darker relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots opacity-20"></div>
+    <div class="absolute -top-20 end-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-20 start-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
 
-    <div class="relative container-x grid md:grid-cols-2 gap-px bg-white/5">
-
-        {{-- الرؤية --}}
-        <div class="bg-transparent p-10 md:border-e border-white/10" data-aos="fade-up">
-            <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white text-2xl shadow-glow shrink-0">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-                <div>
-                    <span class="block text-white/50 text-xs uppercase tracking-widest">Vision</span>
-                    <h2 class="text-2xl font-black text-white">رؤيتنا</h2>
-                </div>
-            </div>
-            <p class="text-white/75 leading-8 text-lg border-r-2 border-primary pr-5">
-                {{ $settings->vision ?: 'تسهيل التربية بواسطة التقنية لإحداث أثر إيجابي مستمر، في كل بيت وفي كل فرد.' }}
-            </p>
+    <div class="relative container-x">
+        <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+            <span class="text-accent font-bold tracking-wide">بوصلتنا</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">الرؤية والرسالة</h2>
         </div>
 
-        {{-- الرسالة --}}
-        <div class="bg-transparent p-10" data-aos="fade-up" data-aos-delay="120">
-            <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center text-white text-2xl shadow-accent-glow shrink-0">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-                <div>
-                    <span class="block text-white/50 text-xs uppercase tracking-widest">Mission</span>
-                    <h2 class="text-2xl font-black text-white">رسالتنا</h2>
+        <div class="relative grid lg:grid-cols-2 gap-6 lg:gap-20">
+            {{-- بوصلة مركزية --}}
+            <div class="hidden lg:grid absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-primary-darker border-2 border-dashed border-white/15 place-items-center z-10">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent grid place-items-center text-white text-xl shadow-glow">
+                    <i class="fa-solid fa-compass"></i>
                 </div>
             </div>
-            <p class="text-white/75 leading-8 text-lg border-r-2 border-accent pr-5">
-                {{ $settings->mission ?: 'مؤسسة وقفية تقنية تعمل على تقديم التربية الأسرية من خلال التقنية للوصول لأكبر عدد من الأسر في العالم وتحقيق جودة الحياة الأسرية.' }}
-            </p>
+
+            {{-- الرؤية --}}
+            <div class="relative glass rounded-[2rem] p-8 lg:p-10 overflow-hidden lg:-rotate-1 hover:rotate-0 transition-transform duration-500" data-aos="fade-up">
+                <i class="fa-solid fa-eye absolute -bottom-6 -start-4 text-[8rem] text-white/[0.04] pointer-events-none"></i>
+                <div class="relative">
+                    <div class="w-14 h-14 rounded-2xl bg-primary text-white grid place-items-center text-2xl shadow-glow mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <span class="block text-white/40 text-xs tracking-[0.3em] uppercase mb-1">Vision</span>
+                    <h3 class="text-2xl font-black text-white mb-4">رؤيتنا</h3>
+                    <p class="text-white/75 leading-8 text-lg">
+                        {{ $settings->vision ?: 'تسهيل التربية بواسطة التقنية لإحداث أثر إيجابي مستمر، في كل بيت وفي كل فرد.' }}
+                    </p>
+                </div>
+            </div>
+
+            {{-- الرسالة --}}
+            <div class="relative glass rounded-[2rem] p-8 lg:p-10 overflow-hidden lg:rotate-1 hover:rotate-0 transition-transform duration-500 lg:mt-12" data-aos="fade-up" data-aos-delay="120">
+                <i class="fa-solid fa-bullseye absolute -bottom-6 -end-4 text-[8rem] text-white/[0.04] pointer-events-none"></i>
+                <div class="relative">
+                    <div class="w-14 h-14 rounded-2xl bg-accent text-white grid place-items-center text-2xl shadow-accent-glow mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <span class="block text-white/40 text-xs tracking-[0.3em] uppercase mb-1">Mission</span>
+                    <h3 class="text-2xl font-black text-white mb-4">رسالتنا</h3>
+                    <p class="text-white/75 leading-8 text-lg">
+                        {{ $settings->mission ?: 'مؤسسة وقفية تقنية تعمل على تقديم التربية الأسرية من خلال التقنية للوصول لأكبر عدد من الأسر في العالم وتحقيق جودة الحياة الأسرية.' }}
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -126,57 +176,92 @@ $goals = [
             <h2 class="section-title">الأهداف التفصيلية</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{-- شبكة متصلة بفواصل — بدون كروت --}}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 rounded-[2rem] overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="100">
             @foreach($goals as $goal)
-            <div class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
-                 data-aos="fade-up" data-aos-delay="{{ $loop->index * 60 }}">
-                {{-- رقم خلفية كبير --}}
-                <span class="absolute -top-3 -start-1 text-8xl font-black text-gray-50 select-none leading-none group-hover:text-primary/5 transition-colors duration-300">
+            <div class="group relative p-8 lg:p-9 bg-white hover:bg-gradient-to-br hover:from-primary/[0.04] hover:to-accent/[0.04] transition-colors duration-300">
+                {{-- رقم مفرّغ --}}
+                <span class="block text-6xl font-black text-transparent leading-none mb-5 select-none group-hover:text-primary/10 transition-colors duration-300"
+                      style="-webkit-text-stroke:1.5px rgba(19,184,195,.3)">
                     {{ $goal['num'] }}
                 </span>
-                <div class="relative">
-                    <span class="inline-block text-xs font-black text-primary/50 mb-3 tracking-widest">{{ $goal['num'] }}</span>
-                    <h3 class="font-extrabold text-gray-800 text-lg mb-2 group-hover:text-primary transition-colors duration-300">
-                        {{ $goal['title'] }}
-                    </h3>
-                    <p class="text-gray-500 text-sm leading-6">{{ $goal['desc'] }}</p>
-                </div>
+                <h3 class="font-extrabold text-gray-800 text-lg mb-2 group-hover:text-primary transition-colors duration-300">
+                    {{ $goal['title'] }}
+                </h3>
+                <p class="text-gray-500 text-sm leading-6">{{ $goal['desc'] }}</p>
                 {{-- خط سفلي متحرك --}}
-                <div class="absolute bottom-0 start-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-500 rounded-full"></div>
+                <div class="absolute bottom-0 start-0 h-0.5 w-0 bg-gradient-to-l from-primary to-accent group-hover:w-full transition-all duration-500"></div>
             </div>
             @endforeach
         </div>
     </div>
 </section>
 
-{{-- ============ 4. مسوّغات المشروع — بطاقات ملونة ============ --}}
+{{-- ============ 4. مسوّغات المشروع — صورة جانبية + قائمة ============ --}}
 @php
 $justifications = [
-    ['icon'=>'fa-magnifying-glass', 'title'=>'ندرة المؤسسات المتخصصة',      'desc'=>'ندرة المؤسسات التقنية المتخصصة في المجال الأسري.',             'gradient'=>'from-primary/10 to-primary/5',   'icolor'=>'text-primary'],
-    ['icon'=>'fa-link-slash',       'title'=>'ضعف الربط بين التقنية والأسرة','desc'=>'ضعف التوازن والربط بين التقنية ومتطلبات الأسرة.',              'gradient'=>'from-rose-50 to-rose-50/30',      'icolor'=>'text-rose-500'],
-    ['icon'=>'fa-shield-halved',    'title'=>'التحديات المتجددة',             'desc'=>'التحديات المتجددة تجاه استقرار الأسرة.',                        'gradient'=>'from-orange-50 to-orange-50/30', 'icolor'=>'text-orange-500'],
-    ['icon'=>'fa-user-gear',        'title'=>'تفعيل دور الآباء والخبراء',    'desc'=>'تفعيل دور الآباء والخبراء وتمكينهم من تطوير الأسرة.',           'gradient'=>'from-secondary/10 to-secondary/5','icolor'=>'text-secondary'],
-    ['icon'=>'fa-building-user',    'title'=>'تجسير الأدوار',                'desc'=>'تجسير الأدوار بين الجهات المهتمة بالأسرة.',                     'gradient'=>'from-indigo-50 to-indigo-50/30', 'icolor'=>'text-indigo-500'],
-    ['icon'=>'fa-flag',             'title'=>'مواكبة تطلعات الدولة',         'desc'=>'مواكبة تطلعات الدولة تجاه استقرار الأسرة ورؤية 2030.',          'gradient'=>'from-accent/10 to-accent/5',     'icolor'=>'text-accent-dark'],
+    ['icon'=>'fa-magnifying-glass', 'title'=>'ندرة المؤسسات المتخصصة',      'desc'=>'ندرة المؤسسات التقنية المتخصصة في المجال الأسري.',             'bg'=>'bg-primary/10',   'icolor'=>'text-primary'],
+    ['icon'=>'fa-link-slash',       'title'=>'ضعف الربط بين التقنية والأسرة','desc'=>'ضعف التوازن والربط بين التقنية ومتطلبات الأسرة.',              'bg'=>'bg-rose-50',      'icolor'=>'text-rose-500'],
+    ['icon'=>'fa-shield-halved',    'title'=>'التحديات المتجددة',             'desc'=>'التحديات المتجددة تجاه استقرار الأسرة.',                        'bg'=>'bg-orange-50',    'icolor'=>'text-orange-500'],
+    ['icon'=>'fa-user-gear',        'title'=>'تفعيل دور الآباء والخبراء',    'desc'=>'تفعيل دور الآباء والخبراء وتمكينهم من تطوير الأسرة.',           'bg'=>'bg-secondary/10', 'icolor'=>'text-secondary-dark'],
+    ['icon'=>'fa-building-user',    'title'=>'تجسير الأدوار',                'desc'=>'تجسير الأدوار بين الجهات المهتمة بالأسرة.',                     'bg'=>'bg-indigo-50',    'icolor'=>'text-indigo-500'],
+    ['icon'=>'fa-flag',             'title'=>'مواكبة تطلعات الدولة',         'desc'=>'مواكبة تطلعات الدولة تجاه استقرار الأسرة ورؤية 2030.',          'bg'=>'bg-accent/10',    'icolor'=>'text-accent-dark'],
 ];
 @endphp
 <section class="py-20" style="background:linear-gradient(180deg,#f8fafc 0%,#fff 100%)">
     <div class="container-x">
-        <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
-            <span class="section-eyebrow">لماذا المشروع</span>
-            <h2 class="section-title">مسوّغات المشروع</h2>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            @foreach($justifications as $j)
-            <div class="group rounded-2xl bg-gradient-to-br {{ $j['gradient'] }} border border-white p-6 hover:-translate-y-1 hover:shadow-soft transition-all duration-300"
-                 data-aos="fade-up" data-aos-delay="{{ $loop->index * 60 }}">
-                <div class="w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center {{ $j['icolor'] }} text-lg mb-4">
-                    <i class="fa-solid {{ $j['icon'] }}"></i>
+        <div class="grid lg:grid-cols-5 gap-14 lg:gap-16 items-center">
+
+            {{-- الصورة --}}
+            <div class="lg:col-span-2 relative mx-4 lg:mx-0 lg:me-6" data-aos="fade-left">
+                <div class="absolute -top-6 -start-6 w-32 h-32 bg-dots-dark rounded-3xl"></div>
+                <div class="absolute -bottom-8 -end-8 w-36 h-36 rounded-full border-[12px] border-primary/10"></div>
+
+                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[3/4] shadow-soft">
+                    @if(file_exists(public_path('images/justifications.jpg')))
+                        <img src="{{ asset('images/justifications.jpg') }}" alt="مسوّغات المشروع" class="w-full h-full object-cover">
+                    @else
+                        <div class="w-full h-full bg-gradient-to-b from-secondary via-accent-dark to-primary-darker relative">
+                            <div class="absolute inset-0 bg-dots opacity-30"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white/80">
+                                <i class="fa-solid fa-scale-balanced text-5xl"></i>
+                                <span class="text-xs font-bold text-white/50" dir="ltr">images/justifications.jpg</span>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-darker/40 to-transparent"></div>
                 </div>
-                <h3 class="font-bold text-gray-800 mb-2">{{ $j['title'] }}</h3>
-                <p class="text-gray-500 text-sm leading-6">{{ $j['desc'] }}</p>
+
+                {{-- شارة عائمة --}}
+                <div class="absolute -bottom-5 start-6 bg-white rounded-2xl shadow-soft px-5 py-3.5 flex items-center gap-3" data-aos="zoom-in" data-aos-delay="250">
+                    <span class="w-10 h-10 rounded-xl bg-accent text-white grid place-items-center shadow-accent-glow"><i class="fa-solid fa-scale-balanced"></i></span>
+                    <div>
+                        <span class="block text-lg font-black text-gray-800 leading-none">6 مسوّغات</span>
+                        <span class="text-[11px] text-gray-500 font-bold">تدفعنا للعمل</span>
+                    </div>
+                </div>
             </div>
-            @endforeach
+
+            {{-- القائمة --}}
+            <div class="lg:col-span-3" data-aos="fade-right">
+                <span class="section-eyebrow">لماذا المشروع</span>
+                <h2 class="section-title mb-10">مسوّغات المشروع</h2>
+
+                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-8">
+                    @foreach($justifications as $j)
+                    <div class="group flex items-start gap-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 70 }}">
+                        <div class="shrink-0 w-12 h-12 rounded-xl {{ $j['bg'] }} {{ $j['icolor'] }} grid place-items-center text-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid {{ $j['icon'] }}"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-gray-800 mb-1 group-hover:text-primary transition-colors">{{ $j['title'] }}</h3>
+                            <p class="text-gray-500 text-sm leading-6">{{ $j['desc'] }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

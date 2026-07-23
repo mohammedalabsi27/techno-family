@@ -249,6 +249,172 @@
 }
 
 /* ============================================================
+   موك-أب الجوال في الهيرو — شاشات تتقلّب
+   ============================================================ */
+.phone-mockup {
+    position: relative;
+    width: 270px;
+    height: 550px;
+    border-radius: 44px;
+    background: linear-gradient(160deg, #1c2733, #0b1116);
+    padding: 12px;
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.08),
+        0 30px 80px -20px rgba(0,0,0,0.6),
+        inset 0 0 4px rgba(255,255,255,0.1);
+}
+@media (min-width: 1024px) {
+    .phone-mockup { width: 300px; height: 610px; }
+}
+
+/* أزرار الجوال الجانبية */
+.phone-btn {
+    position: absolute;
+    background: #2a3642;
+    border-radius: 3px;
+}
+.phone-btn-power    { left: -3px;  top: 150px; width: 3px; height: 70px; }
+.phone-btn-vol-up   { right: -3px; top: 120px; width: 3px; height: 44px; }
+.phone-btn-vol-down { right: -3px; top: 174px; width: 3px; height: 44px; }
+
+/* الشاشة */
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 34px;
+    overflow: hidden;
+    background: #052c30;
+}
+
+/* النوتش */
+.phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 22px;
+    background: #0b1116;
+    border-radius: 12px;
+    z-index: 20;
+}
+
+/* الشرائح — تتقلّب بالـ JS (فئة is-active) */
+.phone-slides { position: absolute; inset: 0; }
+.phone-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.phone-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* خلفيات متدرجة لكل شاشة تطبيق */
+.phone-app-1 { background: linear-gradient(165deg, #0e929b 0%, #052c30 90%); }
+.phone-app-2 { background: linear-gradient(165deg, #e89d42 0%, #7c4a0e 90%); }
+.phone-app-3 { background: linear-gradient(165deg, #13b8c3 0%, #085a60 90%); }
+.phone-app-4 { background: linear-gradient(165deg, #c97d22 0%, #052c30 90%); }
+
+/* واجهة التطبيق المصغّرة داخل الشاشة */
+.phone-app-ui {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+.phone-app-icon {
+    width: 74px; height: 74px;
+    border-radius: 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    margin-bottom: 6px;
+}
+.phone-app-name {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+.phone-app-tag {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.8rem;
+}
+.phone-app-rows {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+.phone-app-row {
+    display: block;
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.14);
+}
+
+/* نقاط تبديل الشاشات أسفل الشاشة */
+.phone-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 20;
+}
+.phone-dot {
+    width: 7px; height: 7px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.35);
+    transition: all 0.4s;
+}
+.phone-dot.is-active {
+    width: 20px;
+    background: #e89d42;
+}
+
+/* طفو الجوال */
+@keyframes phone-float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%       { transform: translateY(-14px) rotate(-2deg); }
+}
+.animate-phone-float { animation: phone-float 6s ease-in-out infinite; }
+
+/* الشارات العائمة حول الجوال */
+.phone-float-badge {
+    position: absolute;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+.phone-badge-1 { top: 12%;  right: -70px; animation: fc-float1 7s ease-in-out infinite; }
+.phone-badge-2 { top: 48%;  left: -78px;  animation: fc-float2 9s ease-in-out infinite 1s; }
+.phone-badge-3 { bottom: 12%; right: -62px; animation: fc-float1 8s ease-in-out infinite 2s; }
+
+/* ============================================================
    شريط الإحصائيات
    ============================================================ */
 .stats-strip {
@@ -431,3 +597,4 @@
     0%, 100% { background-position: 0% 50%; }
     50%       { background-position: 100% 50%; }
 }
+

@@ -109,6 +109,51 @@ function initFloatingCode() {
 }
 
 /* ============================================================
+   موك-أب الجوال — تقليب شاشات التطبيقات
+   ============================================================ */
+function initPhoneMockup() {
+    const slides = document.querySelectorAll('.phone-slide');
+    const dotsContainer = document.querySelector('.phone-dots');
+    if (slides.length < 2) {
+        // شاشة واحدة أو لا شيء — فعّلها واكتفِ
+        slides[0]?.classList.add('is-active');
+        return;
+    }
+
+    // بناء النقاط
+    const dots = [];
+    if (dotsContainer) {
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.classList.add('phone-dot');
+            dot.addEventListener('click', () => show(i, true));
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        });
+    }
+
+    let current = 0;
+    let timer = null;
+
+    function show(index, manual = false) {
+        slides[current].classList.remove('is-active');
+        dots[current]?.classList.remove('is-active');
+        current = index % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current]?.classList.add('is-active');
+        if (manual) restart();
+    }
+
+    function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => show(current + 1), 3200);
+    }
+
+    show(0);
+    restart();
+}
+
+/* ============================================================
    Swiper — الهيرو (إن وُجد slider)
    ============================================================ */
 function initHeroSwiper() {
@@ -262,6 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initTypewriter();
     initFloatingCode();
+    initPhoneMockup();
     initYearTabs();
     initSmoothAnchors();
 });
+
+
